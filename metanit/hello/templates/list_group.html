@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список групп</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <ul>
+        <h2>Список групп</h2>
+        {%for group in groups%}
+            <li><a href=''>{{group.name}}</a></li>
+        {%endfor%}
+    </ul>
+</body>
+</html>

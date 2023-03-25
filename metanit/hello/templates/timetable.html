@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %} 
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel='stylesheet' href="{%static 'css/table.css'%}"/>
+    <title>Расписание группы  {{timetable}}</title>
+</head>
+<body>
+
+        <h2>Расписание группы {{timetable}}</h2>
+        {%for day, classes in timetable.items%}
+            <table border="1" width='600sp' align='center'>
+                <caption>{{day}}</caption>
+                <thead>
+                    <tr>
+                        <th>Предмет</th>
+                        <th>Время</th>
+                        <th>Преподаватель</th>
+                        <th>Группа</th>
+                    </tr>
+                </thead>
+            <tbody>
+            {%if classes%}
+                {%for class in classes%}
+                    <tr>
+                        <td width='250sp' align='left' valign='top'>{{class.course.name}}</td>
+                        <td width='50sp' align='center', valign='center'>{{class.time}}</td>
+                        <td width='250sp' align='left' valign='top'>{{class.teacher.name}}</td>
+                        <td width='50sp' align='center', valign='center'>{{class.group.name}}</td>
+                    </tr>
+                {%endfor%}
+            {%else%}
+                <tr>
+                    <td colspan="4" align='center', valign='center'>Занятий нет</td>
+                </tr>
+            {%endif%}
+            </tbody>
+            </br>
+                
+        {%endfor%}
+        </table>
+
+</body>
+</html>
